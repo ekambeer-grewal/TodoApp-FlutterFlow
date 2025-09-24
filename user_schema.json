@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ToDoApp Firestore Database Schema",
+  "type": "object",
+  "properties": {
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "User Document",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "Unique identifier for the user (Firestore document ID)."
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The display name chosen by the user."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "The user's email address."
+          },
+          "photo_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Profile photo URL for the user."
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time",
+            "description": "User's birthday stored as a timestamp."
+          },
+          "created_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the user document was created."
+          }
+        },
+        "required": ["uid", "display_name", "email", "created_time"]
+      }
+   

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ToDoApp Firestore Database Schema",
+  "type": "object",
+  "properties": {
+"tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Task Document",
+        "properties": {
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the task is completed."
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the task was created."
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional details or notes for the task."
+          },
+          "title": {
+            "type": "string",
+            "description": "Short title or name of the task."
+          },
+          "user": {
+            "type": "string",
+            "pattern": "^/users/[A-Za-z0-9_-]+$",
+            "description": "Firestore reference to the user who owns this task."
+          }
+        },
+        "required": ["completed", "created", "title", "user"]
+      }
+    }
+  },
+  "required": ["users", "tasks"]
+}
